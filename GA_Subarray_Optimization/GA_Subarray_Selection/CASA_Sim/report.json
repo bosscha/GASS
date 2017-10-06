@@ -1,0 +1,55 @@
+{
+   "numberOfAntenna": 5, 
+   "percentileBaseline": {
+      "L20": 20.576767344521084, 
+      "L05": 17.076751248367309, 
+      "L10": 17.256583394272958, 
+      "L90": 105.49326618642806, 
+      "L80": 79.901638946386583
+   }, 
+   "inputCfg": "C43-2_Subarray_2.cfg", 
+   "weighting": "briggs", 
+   "obsersvingTime": "1h", 
+   "maximumBaseline": 106.76391782923803, 
+   "baselineRMS": 56.637606, 
+   "Metrics": {
+      "voronoiCompactness": 3.2462683407480806, 
+      "voronoiPerimeter": 59.0, 
+      "voronoiArea": 63.0
+   }, 
+   "shadowing": 0.0, 
+   "version": "1.5.0@2017.07.21", 
+   "frequency": 100.0, 
+   "spatialResolution": {
+      "major:": 26.226177215576172, 
+      "geometricResolution": 9.459062357527204, 
+      "PA": -171.3609619140625, 
+      "minor": 3.4116241931915283
+   }, 
+   "criticalPads": [
+      [
+         "A025", 
+         100.00000000000001
+      ], 
+      [
+         "A004", 
+         94.480426174113589
+      ], 
+      [
+         "A002", 
+         46.945443572019016
+      ], 
+      [
+         "A006", 
+         8.1663993992452983
+      ], 
+      [
+         "A035", 
+         1.8669587122254414
+      ]
+   ], 
+   "LAS": 22.128792072231846, 
+   "sidelobeLevel": 76.429754495620728, 
+   "minimumBaseline": 16.765488093023688, 
+   "declination": -50.0
+}
