@@ -1,0 +1,31 @@
+=== Array Configuration Summary ==== 
+
+Input file : C43-2_Subarray_2.cfg 
+Nant : 5 
+Declination (Degree): -50.00 
+Duration : 1h 
+Frequency (GHz) : 100.0 
+Minimum Proj. BL (meters) : 16.765488 
+Maximum Proj. BL (meters) : 106.763918 
+L05, L05bis, L10, L20 Proj. BL (meters): 17.08, 17.08, 17.26, 20.58 
+L80, L90 Proj. BL (meters): 79.90, 105.49 
+RMS (meters) : 56.64 
+Shadowing fraction (%): 0.0 
+minor beam (arcsec) : 3.4116 
+major beam (arcsec) : 26.2262 
+Spatial resolution (arcsec) : 9.4591 
+Weighting : briggs 
+Sidelobe level (%) : 76.4 
+PA beam (degree): -171.4 
+LAS (arcsec) : 22.1288 
+Analytic AR (arcsec) : 4.4407 
+Analytic LAS (arcsec) : 35.6059 
+
+Critical Pads [%priority] : 
+A025 [100.00 %]  A004 [94.48 %]  A002 [46.95 %]  A006 [8.17 %]  A035 [1.87 %]  
+
+=== metrics ===
+
+# Voronoi Perimeter Critical radius (%) : 59.0 
+# Voronoi Area Critical radius (%) : 63.0 
+# Voronoi Compactness  : 3.25 (I: 7.37, Z: -2.22) [-1:ok - 0:sparse]

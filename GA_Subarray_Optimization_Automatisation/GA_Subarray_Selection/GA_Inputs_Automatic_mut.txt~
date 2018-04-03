@@ -1,0 +1,55 @@
+########################################################################################################################
+########################################################################################################################
+#                                                                                                                      #
+#                INPUTS - Subarray selection using Genetic Algorithm                                                   #
+#                                                                                                                      # 
+########################################################################################################################
+########################################################################################################################
+# NAMES : VALUES #
+#   (5 inputs)   # 
+# !! Careful : the delimiter between the Names and the Values of the inputs must be ":" !!
+
+# ——————————————————————————————————————————————————— #
+# ——— File with the parameters for the GA :       ——— #
+# ——————————————————————————————————————————————————— #
+# Default input : GA_Subarray_Selection/GA_Parameters_Automatic.txt
+# Note : the complete path is needed
+
+File_Parameters : GA_Subarray_Selection/GA_Parameters
+.txt
+
+# ——————————————————————————————————————————————————— #
+# ——— Display the results from the test :         ——— #
+# ——————————————————————————————————————————————————— #
+# Possible inputs : True, False
+# --> True : display on the screen of the input parameters, the score evolution, the results of the initial and final configurations.
+# --> False : display of the score evolution only.
+
+Display_Screen_Results : False
+
+# ——————————————————————————————————————————————————— #
+# ——— Save the test in a folder :                 ——— #
+# ——————————————————————————————————————————————————— #
+# Possible inputs : True, False
+# --> True : saving of the subarrays of the array solution at CASA format, the file .txt of parameters, the result of the array solution in a file .txt, and the figure of score evolution if displayed (i.e. if Display_Figure_Score_Evolution : True). It is recorded in the folder GA_Subarray_Selection/Files/Tests_Storage/. The exact path is displayed on the screen.
+# --> False : - .
+
+Save_Folder_Results : True
+
+# ——————————————————————————————————————————————————— #
+# ——— Launch CASA simulation :                    ——— #
+# ——————————————————————————————————————————————————— #
+# Possible inputs : True, False
+# --> True : lauch CASA simulation of the subarrays of the array solution saved at CASA format (with "Save Folder Results : True").
+# --> False : - .
+
+Launch_CASA_Simulation : False
+
+# ——————————————————————————————————————————————————— #
+# ——— Display the figure of the score evolution : ——— #
+# ——————————————————————————————————————————————————— #
+# Possible inputs : True, False
+# --> True : display the figure of the score evolution.
+# --> False : - .
+
+Display_Figure_Score_Evolution : False

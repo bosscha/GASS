@@ -1,0 +1,217 @@
+2017-08-10 16:30:03	INFO	casa::::	---
+2017-08-10 16:30:03	INFO	casa::::	CASA Version 4.7.2-REL (r39762)
+2017-08-10 16:30:03	INFO	casa::::	  Tagged on: 2017-03-08 10:02:42 UTC
+2017-08-10 16:30:03	INFO	default::::	 #######  Setting values to default for task: simobserve  #######
+2017-08-10 16:30:03	INFO	simobserve::::	
+2017-08-10 16:30:03	INFO	simobserve::::+	##########################################
+2017-08-10 16:30:03	INFO	simobserve::::+	##### Begin Task: simobserve         #####
+2017-08-10 16:30:03	INFO	simobserve::::	simobserve(project="sim",skymodel="",inbright="",indirection="",incell="",
+2017-08-10 16:30:03	INFO	simobserve::::+	        incenter="",inwidth="",complist="sim.cl",compwidth="8GHz",setpointings=True,
+2017-08-10 16:30:03	INFO	simobserve::::+	        ptgfile="$project.ptg.txt",integration="10s",direction="",mapsize=" 4.00arcsec",maptype="ALMA",
+2017-08-10 16:30:03	INFO	simobserve::::+	        pointingspacing="",caldirection="",calflux="1Jy",obsmode="int",refdate="2014/05/21",
+2017-08-10 16:30:03	INFO	simobserve::::+	        hourangle="transit",totaltime="1h",antennalist="C43-2_Subarray_2.cfg",sdantlist="aca.tp.cfg",sdant=0,
+2017-08-10 16:30:03	INFO	simobserve::::+	        thermalnoise="",user_pwv=0.5,t_ground=269.0,t_sky=260.0,tau0=0.1,
+2017-08-10 16:30:03	INFO	simobserve::::+	        seed=11111,leakage=0.0,graphics="both",verbose=False,overwrite=True)
+2017-08-10 16:30:03	INFO	simobserve::readantenna::	Reading antenna positions from 'C43-2_Subarray_2.cfg'
+2017-08-10 16:30:03	INFO	simobserve::readantenna::	Reading antenna positions from 'C43-2_Subarray_2.cfg'
+2017-08-10 16:30:03	INFO	readantenna::::	Created Paged image 'sim/sim.C43-2_Subarray_2.compskymodel' of shape [41, 41, 1, 1] with float valued pixels.
+2017-08-10 16:30:03	INFO	readantenna::ComponentImager::project	Adding components to image with units [Jy/pixel.pixel]
+2017-08-10 16:30:03	INFO	readantenna::ImageFactory::fromImage	Created image 'sim/sim.C43-2_Subarray_2.compskymodel.flat' of shape [41, 41]
+2017-08-10 16:30:03	INFO	readantenna::image::_adddegaxes 	Creating image 'sim/sim.C43-2_Subarray_2.compskymodel.flat' of shape [41, 41, 1]
+2017-08-10 16:30:03	INFO	simobserve::simobserve::	calculating map pointings centered at J2000 00:00:00.00000 -050.00.00.000000
+2017-08-10 16:30:03	INFO	simobserve::calc_pointings::	using 1 generated pointing(s)
+2017-08-10 16:30:03	INFO	simobserve::simobserve::	center = J2000 00:00:00.00000 -050.00.00.000000
+2017-08-10 16:30:04	INFO	simobserve::simobserve::	preparing empty measurement set
+2017-08-10 16:30:04	INFO	simobserve::simobserve::	You desire an hour angle of 0.0 hours
+2017-08-10 16:30:04	INFO	simobserve::NewMSSimulator::initAnt() 	Using global coordinates for the antennas
+2017-08-10 16:30:04	INFO	simobserve::NewMSSimulator::initAnt() 	Added rows to ANTENNA table
+2017-08-10 16:30:04	INFO	simobserve::MSsimulator::initSpWindows() 	Creating new spectral window band1, ID 1
+2017-08-10 16:30:04	INFO	simobserve::MSsimulator::initFeeds() 	Added rows to FEED table
+2017-08-10 16:30:04	INFO	simobserve::simulator::settimes()	Times 
+2017-08-10 16:30:04	INFO	simobserve::simulator::settimes()+	     Integration time 10s
+2017-08-10 16:30:04	INFO	simobserve::simulator::settimes()	     Times will be interpreted as hour angles for first source
+2017-08-10 16:30:04	INFO	simobserve::NewMSSimulator::observe()	First source: sim.C43-2_Subarray_2_0 @ 00:00:00.00   -50.00.00.00       J2000
+2017-08-10 16:30:04	INFO	simobserve::NewMSSimulator::observe()+	Full time range: 20-May-2014/12:08:05.0 -- 20-May-2014/13:08:05.0 TAI with int = 10
+2017-08-10 16:30:04	INFO	simobserve::NewMSSimulator::observe()	Calculating a total of 360 integrations
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setdata() 	Selecting data
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setdata() 	Performing selection on MeasurementSet
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setdata() 	Selecting on field and spectral window ids
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setdata() 	No selection string given
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setdata() 	Selection did not drop any rows
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setvp()	Setting voltage pattern parameters
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setvp()	Using system default voltage patterns for each telescope
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setvp()	Beam Squint will be included in the VP model
+2017-08-10 16:30:05	INFO	simobserve::Simulator::setvp()	and the parallactic angle increment is 360 degrees
+2017-08-10 16:30:05	INFO	simobserve::simobserve::	done setting up observations (blank visibilities)
+2017-08-10 16:30:05	INFO	simobserve::simobserve::	predicting from sim.cl
+2017-08-10 16:30:05	INFO	simobserve::Simulator::predict() 	Predicting visibilities using model: [] and componentList: sim.cl
+2017-08-10 16:30:05	INFO	simobserve::Simulator::predict() 	The data column will be replaced
+2017-08-10 16:30:05	INFO	simobserve::Simulator::createSkyEquation() 	Synthesis gridding 
+2017-08-10 16:30:05	INFO	simobserve::Simulator::createSkyEquation() 	Fourier transforms will use image centers as tangent points
+2017-08-10 16:30:05	INFO	simobserve::Simulator::createSkyEquation() 	Using default primary beams for mosaicing (use setvp to change)
+2017-08-10 16:30:05	INFO	simobserve::VPSkyJones::VPSkyJones	PB used ALMA
+2017-08-10 16:30:05	INFO	simobserve::BeamSkyJones::summary	Beam Summary: 
+2017-08-10 16:30:05	INFO	simobserve::BeamSkyJones::summary	Model 1 for ALMA ant=-1 feed=-1 uses PB: AIRY
+2017-08-10 16:30:05	INFO	simobserve::PBMath1D::summary	Using AIRY PB Class 
+2017-08-10 16:30:05	INFO	simobserve::PBMathInterface::summary	These parameters are for Voltage Pattern
+2017-08-10 16:30:05	INFO	simobserve::PBMathInterface::summary	No Beam Squint
+2017-08-10 16:30:05	INFO	simobserve::PBMath1D::summary	Max Radius at 1 GHz: 107.04 arcmin 
+2017-08-10 16:30:05	INFO	simobserve::PBMath1DAiry::summary	   Dish Diameter: 10.7 m 
+2017-08-10 16:30:05	INFO	simobserve::PBMath1DAiry::summary	Blocked Diameter: 0.75 m 
+2017-08-10 16:30:05	INFO	simobserve::Simulator::reset() 	Resetting all visibility corruption components
+2017-08-10 16:30:05	INFO	simobserve::Simulator::reset() 	Reset all image-plane corruption components
+2017-08-10 16:30:05	INFO	simobserve::simobserve::	generation of measurement set sim/sim.C43-2_Subarray_2.ms complete
+2017-08-10 16:30:05	INFO	simobserve::::	Position: [1761.87, -4307.63, -1977.71]
+2017-08-10 16:30:05	INFO	simobserve::::+	Epoch: 56798::00:00:00.0000
+2017-08-10 16:30:05	INFO	simobserve::::+	Epoch: 56797::12:38:04.9441
+2017-08-10 16:30:05	INFO	simobserve::::+	LAST of rise= 16:00:18.28
+2017-08-10 16:30:05	INFO	simobserve::::	LAST of  set= 08:01:07.61
+2017-08-10 16:30:05	INFO	simobserve::::	UTC of rise= 2014/05/19/04:44:12
+2017-08-10 16:30:05	INFO	simobserve::::+	UTC of  set= 2014/05/19/20:42:23
+2017-08-10 16:30:05	INFO	simobserve::ephemeris::	rise=19-May-2014/04:44:47
+2017-08-10 16:30:05	INFO	simobserve::ephemeris::	 set=19-May-2014/20:42:58
+2017-08-10 16:30:05	INFO	simobserve::ephemeris::	peak=20-May-2014/12:38:05
+2017-08-10 16:30:05	INFO	simobserve::Imager::open() 	Opening MeasurementSet /users/lassis/arrayconf/sim/sim.C43-2_Subarray_2.ms
+2017-08-10 16:30:05	INFO	simobserve::simobserve::	using default model cell 0.368635065arcsec for PSF calculation
+2017-08-10 16:30:05	INFO	simobserve::imager::defineimage()	Defining image properties:nx=128 ny=128 cellx='0.368635arcsec' celly='0.368635arcsec' stokes=I' mode=MFS nchan=-1 start=0 step=0 spwids=[0] fieldid=0 facets=1 frame=1 distance='0'
+2017-08-10 16:30:05	INFO	simobserve::imager::defineimage()	 phaseCenter='field-0 ' mStart='Radialvelocity: 0' qStep='0 '' mFreqStart='Frequency: 0
+2017-08-10 16:30:05	INFO	simobserve::imager::approximatepsfs() 	Calculating approximate PSFs using full sky equation
+2017-08-10 16:30:05	INFO	simobserve::imager::createFTMachine() 	Performing interferometric gridding...
+2017-08-10 16:30:08	INFO	simobserve::ImageSkyModel::makeApproxPSFs	bmaj: 27.5415", bmin: 4.08283", bpa: 8.45442 deg
+2017-08-10 16:30:08	INFO	simobserve::imager::approximatepsfs() 	Approximate PSF  : size 27.5415 by 4.08283 (arcsec) at pa 8.45442 (deg)
+2017-08-10 16:30:08	INFO	simobserve::imager::approximatepsfs() +	and volume = -522.308 pixels 
+2017-08-10 16:30:08	INFO	simobserve::imager::fitpsf() 	Fitting to psf
+2017-08-10 16:30:08	INFO	simobserve::imager::fitpsf() 	  Beam fit: 27.5415 by 4.08283 (arcsec) at pa 8.45442 (deg) 
+2017-08-10 16:30:08	INFO	simobserve::CasacRegionManager::fromBCS	No directional region specified. Using full positional plane.
+2017-08-10 16:30:08	INFO	simobserve::CasacRegionManager::fromBCS	Using all spectral channels.
+2017-08-10 16:30:08	INFO	simobserve::CasacRegionManager::fromBCS	Using polarizations ALL
+2017-08-10 16:30:08	INFO	simobserve::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:08	INFO	simobserve::ImageRegion::fromRecord+	    [0, 0, 0, 0] to [127, 127, 0, 0]  (00:00:02.447, -50.00.23.591, I, 1e+11Hz to 23:59:57.592, -49.59.36.774, I, 1e+11Hz)
+2017-08-10 16:30:08	INFO	simobserve::::	##### End Task: simobserve           #####
+2017-08-10 16:30:08	INFO	simobserve::::+	##########################################
+2017-08-10 16:30:08	INFO	simanalyze::::	
+2017-08-10 16:30:08	INFO	simanalyze::::+	##########################################
+2017-08-10 16:30:08	INFO	simanalyze::::+	##### Begin Task: simanalyze         #####
+2017-08-10 16:30:08	INFO	simanalyze::::	simanalyze(project="sim",image=True,imagename="default",skymodel="",vis="default",
+2017-08-10 16:30:08	INFO	simanalyze::::+	        modelimage="",imsize=3,imdirection="",cell="1.1577arcsec",interactive=False,
+2017-08-10 16:30:08	INFO	simanalyze::::+	        niter=0,threshold="0.1mJy",weighting="briggs",mask=[],outertaper=[],
+2017-08-10 16:30:08	INFO	simanalyze::::+	        pbcor=True,stokes="I",featherimage="",analyze=False,showuv=True,
+2017-08-10 16:30:08	INFO	simanalyze::::+	        showpsf=True,showmodel=True,showconvolved=False,showclean=True,showresidual=False,
+2017-08-10 16:30:08	INFO	simanalyze::::+	        showdifference=True,showfidelity=True,graphics="both",verbose=False,overwrite=True,
+2017-08-10 16:30:08	INFO	simanalyze::::+	        dryrun=False,logfile="")
+2017-08-10 16:30:08	INFO	simanalyze::simanalyze::	Found a synthesis measurement set, sim/sim.C43-2_Subarray_2.ms.
+2017-08-10 16:30:08	INFO	simanalyze::simanalyze::	Sky model image sim/sim.C43-2_Subarray_2.compskymodel found.
+2017-08-10 16:30:08	INFO	simanalyze::simanalyze::	The number of image pixel in x-axis, 3, is small to cover 8 x PSF. Setting x pixel number, 120.
+2017-08-10 16:30:08	INFO	simanalyze::simanalyze::	The number of image pixel in y-axis, 3, is small to cover 8 x PSF. Setting y pixel number, 120
+2017-08-10 16:30:08	INFO	simanalyze::simanalyze::	clean(vis='sim/sim.C43-2_Subarray_2.ms',imagename='sim/sim.C43-2_Subarray_2',niter=0,threshold='0.1mJy',psfmode='clark',imagermode='csclean',ftmachine='ft',mask=[],imsize=[120, 120],cell=['1.157700000arcsec', '1.157700000arcsec'],phasecenter='J2000 23:59:59.98088 -049.59.59.815682',weighting='briggs',robust=0.5,uvtaper=False,pbcor=True)
+2017-08-10 16:30:08	INFO	clean::::	nchan=1 start=0 width=1
+2017-08-10 16:30:08	INFO	clean::::	Use default channelization for clean
+2017-08-10 16:30:08	INFO	clean::::	clean image: sim/sim.C43-2_Subarray_2
+2017-08-10 16:30:08	INFO	clean::::	FTMachine used is  ft 
+2017-08-10 16:30:08	INFO	imager::setDataOnThisMS()	Performing selection on MeasurementSet : /users/lassis/arrayconf/sim/sim.C43-2_Subarray_2.ms
+2017-08-10 16:30:08	INFO	imager::setDataOnThisMS()	Selecting on fields : 0
+2017-08-10 16:30:08	INFO	imager::setDataOnThisMS()	Selecting on spectral windows expression :*
+2017-08-10 16:30:08	INFO	imager::setDataOnThisMS()	Selected all 3600 rows
+2017-08-10 16:30:08	INFO	imager::setDataOnThisMS()	Selected : [1 chans in spw 0]
+2017-08-10 16:30:08	INFO	imager::defineimage()	Defining image properties:nx=120 ny=120 cellx='1.1577arcsec' celly='1.1577arcsec' stokes=I' mode=MFS nchan=1 start=0 step=1 spwids=[-1] fieldid=-1 facets=1 frame=1 distance='0'
+2017-08-10 16:30:08	INFO	imager::defineimage()	 phaseCenter='23:59:59.98,  310.00.00.18, ' mStart='Radialvelocity: 0' qStep='0 '' mFreqStart='Frequency: 0
+2017-08-10 16:30:08	INFO	Imager::setvp() 	Setting voltage pattern parameters
+2017-08-10 16:30:08	INFO	Imager::setvp() 	Sky position tolerance is 180 degrees
+2017-08-10 16:30:08	INFO	Imager::setvp() 	Using system default voltage patterns for each telescope
+2017-08-10 16:30:08	INFO	imager::makeimage() 	Calculating image (without full skyequation)
+2017-08-10 16:30:08	INFO	Imager::setvp() 	Setting voltage pattern parameters
+2017-08-10 16:30:08	INFO	imager::weight()	Weighting MS: Imaging weights will be changed
+2017-08-10 16:30:08	INFO	imager::weight()	Briggs weighting: sidelobes will be suppressed over full image
+2017-08-10 16:30:08	INFO	VisSetUtil::VisImagingWeight() 	Normal robustness, robust = 0.5
+2017-08-10 16:30:08	INFO	clean::::	Used mask(s) : [''] to create mask image(s) : sim/sim.C43-2_Subarray_2.mask
+2017-08-10 16:30:08	INFO	imager::setoptions() 	Setting processing options
+2017-08-10 16:30:08	INFO	clean::::	No model found. Making empty initial model : sim/sim.C43-2_Subarray_2.model
+2017-08-10 16:30:08	INFO	Imager::imagecoordinates() 	Center frequency = 100 GHz, synthesized continuum bandwidth = 8 GHz
+2017-08-10 16:30:08	INFO	imager::clean()	Using multifield Clark clean
+2017-08-10 16:30:08	INFO	imager::createFTMachine() 	Multiple fields or facets: transforms will be padded by a factor 1.2
+2017-08-10 16:30:08	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2017-08-10 16:30:08	INFO	imager::clean()	Clean gain = 0.1, Niter = 0, Threshold = 0.1 mJy
+2017-08-10 16:30:08	INFO	imager::clean()	Starting deconvolution
+2017-08-10 16:30:09	INFO	ImageSkyModel::makeApproxPSFs	bmaj: 26.2262", bmin: 3.41162", bpa: -171.361 deg
+2017-08-10 16:30:09	INFO	MFCleanImageSkyModel::solve	Final maximum residual = 0.98272
+2017-08-10 16:30:09	INFO	MFCleanImageSkyModel::solve	Model 0: max, min residuals = 0.98272, -0.286422 clean flux 0
+2017-08-10 16:30:09	INFO	imager::clean()	Threshhold not reached yet.
+2017-08-10 16:30:09	INFO	imager::clean()	Fitted beam used in restoration: 26.2262 by 3.41162 (arcsec) at pa -171.361 (deg) 
+2017-08-10 16:30:09	INFO	imager::iClean()	Restoring Image(s) with the clean-beam
+2017-08-10 16:30:09	INFO	ImageMaskAttacher::makeMask	Created and initialized mask `mask0'
+2017-08-10 16:30:09	INFO	ImageMaskAttacher::makeMask	Created and initialized mask `mask0'
+2017-08-10 16:30:09	INFO	ImageFactory::fromImage	Created image 'sim/sim.C43-2_Subarray_2.image.flat' of shape [120, 120]
+2017-08-10 16:30:09	INFO	image::_adddegaxes 	Creating image 'sim/sim.C43-2_Subarray_2.image.flat' of shape [120, 120, 1]
+2017-08-10 16:30:09	INFO	ImageFactory::fromImage	Created image 'sim/sim.C43-2_Subarray_2.residual.flat' of shape [120, 120]
+2017-08-10 16:30:09	INFO	image::_adddegaxes 	Creating image 'sim/sim.C43-2_Subarray_2.residual.flat' of shape [120, 120, 1]
+2017-08-10 16:30:09	INFO	clean::simanalyze::	done inverting and cleaning
+2017-08-10 16:30:09	INFO	clean::simanalyze::	synthesized beam area in output pixels = 75.643628
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set	Setting (global) restoring beam.
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set	Beam parameters:  Major          : 26.2262 arcsec
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set+	  Minor          : 3.41162 arcsec
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set+	  Position Angle : -171.361 deg
+2017-08-10 16:30:09	INFO	simanalyze::CasacRegionManager::fromBCS	No directional region specified. Using full positional plane.
+2017-08-10 16:30:09	INFO	simanalyze::CasacRegionManager::fromBCS	Using polarizations ALL
+2017-08-10 16:30:09	INFO	simanalyze::ImageMaskAttacher::makeMask	Created and initialized mask `mask0'
+2017-08-10 16:30:09	INFO	simanalyze::ImageRegrid::_checkAxes 	The Stokes axis cannot be regridded - removing from list
+2017-08-10 16:30:09	WARN	simanalyze::ImageRegrid::regrid	You are regridding an image whose beam is not well sampled by the pixel size.  Total flux can be lost when regridding such images, especially when the new pixel size is larger than the old pixel size. It is recommended to check the total flux of your input and output image, and if necessary rebin the input to have smaller pixels.
+2017-08-10 16:30:09	INFO	simanalyze::ImageRegrid::regrid 	Applying Jy/pixel scale factor of 9.86277
+2017-08-10 16:30:09	INFO	simanalyze::SubImageFactory::createImage	Creating image 'sim/sim.C43-2_Subarray_2.compskymodel.flat.regrid.tmp' of shape [120, 120, 1]
+2017-08-10 16:30:09	INFO	simanalyze::ImageMaskAttacher::makeMask	Created mask `mask0'
+2017-08-10 16:30:09	INFO	simanalyze::ImageExprCalculator::_imagecalc	Creating image `sim/sim.C43-2_Subarray_2.compskymodel.flat.regrid' of shape [120, 120, 1]
+2017-08-10 16:30:09	INFO	simanalyze::ImageMaskAttacher::makeMask	Created mask `mask0'
+2017-08-10 16:30:09	INFO	simanalyze::Image2DConvolver::_dealWithRestoringBeam	You are convolving the sky
+2017-08-10 16:30:09	INFO	simanalyze::Image2DConvolver::_dealWithRestoringBeam	Scaling pixel values by 1
+2017-08-10 16:30:09	INFO	simanalyze::Image2DConvolver::_dealWithRestoringBeam	Created mask `mask0'
+2017-08-10 16:30:09	INFO	simanalyze::SubImageFactory::createImage	Creating image 'sim/sim.C43-2_Subarray_2.compskymodel.flat.regrid.conv' of shape [120, 120, 1]
+2017-08-10 16:30:09	INFO	simanalyze::ImageMaskAttacher::makeMask	Created mask `mask0'
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set	Setting (global) restoring beam.
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set	Beam parameters:  Major          : 26.2262 arcsec
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set+	  Minor          : 3.41162 arcsec
+2017-08-10 16:30:09	INFO	simanalyze::BeamManipulator::set+	  Position Angle : -171.361 deg
+2017-08-10 16:30:09	INFO	simanalyze::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:09	INFO	simanalyze::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:09	INFO	simanalyze::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:09	INFO	simanalyze::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:10	INFO	simanalyze::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	clean::statim::	sim/sim.C43-2_Subarray_2.residual.flat: unknown units
+2017-08-10 16:30:10	INFO	statim::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:10	INFO	statim::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	statim::ImageRegion::fromRecord	Selected bounding box : 
+2017-08-10 16:30:10	INFO	statim::ImageRegion::fromRecord+	    [0, 0, 0] to [119, 119, 0]  (00:00:07.188, -50.01.09.264, I to 23:59:52.900, -49.58.51.498, I)
+2017-08-10 16:30:10	INFO	statim::name::	No table opened.
+2017-08-10 16:30:10	INFO	clean::::	##### End Task: simanalyze           #####
+2017-08-10 16:30:10	INFO	clean::::+	##########################################
+2017-08-10 16:30:10	INFO		Initializing with default selection
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary	
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Image name       : sim.C43-2_Subarray_2.psf
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Object name      : 
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Image type       : PagedImage
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Image quantity   : Intensity
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Pixel mask(s)    : None
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Region(s)        : None
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary	
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Direction reference : J2000
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Spectral  reference : LSRK
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Velocity  type      : RADIO
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Rest frequency      : 1e+11 Hz
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Pointing center     :  23:59:59.980880  -49.59.59.815682
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Telescope           : ALMA
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Observer            : CASA simulator
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Date observation    : 2014/05/20/12:08:10
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Telescope position: [2.22514e+06m, -5.44031e+06m, -2.48103e+06m] (ITRF)
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	Axis Coord Type      Name             Proj Shape Tile   Coord value at pixel    Coord incr Units
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	------------------------------------------------------------------------------------------------ 
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	0    0     Direction Right Ascension   SIN   120  120  23:59:59.981    60.00 -1.157700e+00 arcsec
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	1    0     Direction Declination       SIN   120  120 -49.59.59.816    60.00  1.157700e+00 arcsec
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	2    1     Stokes    Stokes                    1    1             I
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	3    2     Spectral  Frequency                 1    1         1e+11     0.00  8.000000e+09 Hz
+2017-08-10 16:30:10	INFO	ImageMetaData::_summary+	                     Velocity                                     0     0.00 -2.398340e+04 km/s
