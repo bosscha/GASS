@@ -20,7 +20,7 @@ __email__="lassis@etud.insa-toulouse.fr"
         - update for automation
         
     2018.04.13:
-        - updating the output-
+        - updating the output- 
         
 '''
 import numpy as np
