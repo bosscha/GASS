@@ -13,6 +13,19 @@ __email__="lassis@etud.insa-toulouse.fr"
     Date created: 06/2017
     Date last modified: 08/2017
     Python Version: 2.7
+    
+    
+    History:
+    
+    06.04.2018:
+        - to allow variable number of trials for the stats.
+        
+    07.04.2018:
+        - testing the output
+        
+    13.04.2018:
+        - updating the output to a dictionary
+        
 '''
 import numpy as np
 from pylab import *
@@ -23,6 +36,9 @@ import sys
 import os
 import glob
 import shutil
+
+import pickle
+
 DOSSIER_COURRANT = os.path.dirname(os.path.abspath(__file__))
 DOSSIER_PARENT = os.path.dirname(DOSSIER_COURRANT)
 sys.path.append(os.path.join(DOSSIER_PARENT,"Codes"))
@@ -112,6 +128,7 @@ list_Threshold=[]
 list_Mutation_Rate=[]
 list_Tournament_Size=[]
 list_Number_for_Elitism=[]
+
 for j in range(0,len(Names)):
 	if Names[j]=='Configuration_Input_File':
 		Configuration_Input_File=Values[j][0]
@@ -314,20 +331,20 @@ elif now in list_constraints_weights_s:
 Score_Storage=[]
 Iter_Storage=[]
 
-if len(list_Number_of_Iterations)!=60:
-	raise Exception('Invalid number of inputs for Number_of_Iterations ('+str(len(list_Number_of_Iterations))+' not 60)')
-elif len(list_Population_Size)!=60:
-	raise Exception('Invalid number of inputs for Population_Size ('+str(len(list_Population_Size))+' not 60)')
-elif len(list_Termination_Condition)!=60:	
-	raise Exception('Invalid number of inputs for Termination_Condition ('+str(len(list_Termination_Condition))+' not 60)')
-elif len(list_Threshold)!=60:
-	raise Exception('Invalid number of inputs for Threshold ('+str(len(list_Threshold))+' not 60)')
-elif len(list_Mutation_Rate)!=60:
-	raise Exception('Invalid number of inputs for Mutation_Rate ('+str(len(list_Mutation_Rate))+' not 60)')
-elif len(list_Tournament_Size)!=60:
-	raise Exception('Invalid number of inputs for Tournament_Size ('+str(len(list_Tournament_Size))+' not 60)')
-elif len(list_Number_for_Elitism)!=60:
-	raise Exception('Invalid number of inputs for Number_for_Elitism ('+str(len(list_Number_for_Elitism))+' not 60)')
+#if len(list_Number_of_Iterations)!=60:
+#	raise Exception('Invalid number of inputs for Number_of_Iterations ('+str(len(list_Number_of_Iterations))+' not 60)')
+#elif len(list_Population_Size)!=60:
+#	raise Exception('Invalid number of inputs for Population_Size ('+str(len(list_Population_Size))+' not 60)')
+#elif len(list_Termination_Condition)!=60:	
+#	raise Exception('Invalid number of inputs for Termination_Condition ('+str(len(list_Termination_Condition))+' not 60)')
+#elif len(list_Threshold)!=60:
+#	raise Exception('Invalid number of inputs for Threshold ('+str(len(list_Threshold))+' not 60)')
+#elif len(list_Mutation_Rate)!=60:
+#	raise Exception('Invalid number of inputs for Mutation_Rate ('+str(len(list_Mutation_Rate))+' not 60)')
+#elif len(list_Tournament_Size)!=60:
+#	raise Exception('Invalid number of inputs for Tournament_Size ('+str(len(list_Tournament_Size))+' not 60)')
+#elif len(list_Number_for_Elitism)!=60:
+#	raise Exception('Invalid number of inputs for Number_for_Elitism ('+str(len(list_Number_for_Elitism))+' not 60)')
 
 print "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! PARAMETERS FOR THE TEST !!!!!!!!!!!!!!!!!!!!!"
 print list_Number_of_Iterations
@@ -358,7 +375,7 @@ for w in range(0,len(list_Number_of_Iterations)):
 
 	print '\n'
 	print "________________________________________________________________"
-	print "_____________________ START OF GA (test : "+str(w)+"/59"+")_________________"
+	print "_____________________ START OF GA (test : "+str(w)+")_________________"
 	print "________________________________________________________________"
 	print '\n'
 
@@ -521,7 +538,7 @@ for w in range(0,len(list_Number_of_Iterations)):
         
 	print '\n'
 	print "________________________________________________________________"
-	print "_____________________ END OF GA (test : "+str(w)+"/59"+")_____________________"
+	print "_____________________ END OF GA (test : "+str(w)+")_____________________"
 	print "________________________________________________________________"
 	print '\n'
 
@@ -555,14 +572,29 @@ for w in range(0,len(list_Number_of_Iterations)):
 	    print '\n'
 
 
-x=[Iter_Storage[0],Iter_Storage[10],Iter_Storage[20],Iter_Storage[30],Iter_Storage[40],Iter_Storage[-1]]
-y=[mean(Score_Storage[:10]),mean(Score_Storage[10:20]),mean(Score_Storage[20:30]),mean(Score_Storage[30:40]),mean(Score_Storage[40:50]),mean(Score_Storage[50:])]
-error_y=[[mean(Score_Storage[:10])-min(Score_Storage[:10]),mean(Score_Storage[10:20])-min(Score_Storage[10:20]),mean(Score_Storage[20:30])-min(Score_Storage[20:30]),mean(Score_Storage[30:40])-min(Score_Storage[30:40]),mean(Score_Storage[40:50])-min(Score_Storage[40:50]),mean(Score_Storage[50:])-min(Score_Storage[50:])],[max(Score_Storage[:10])-mean(Score_Storage[:10]),max(Score_Storage[10:20])-mean(Score_Storage[10:20]),max(Score_Storage[20:30])-mean(Score_Storage[20:30]),max(Score_Storage[30:40])-mean(Score_Storage[30:40]),max(Score_Storage[40:50])-mean(Score_Storage[40:50]),max(Score_Storage[50:])-mean(Score_Storage[50:])]]
+## Dump the results in a pickle file
+
+data = {}
+
+data['Score'] = Score_Storage
+data['Population'] = list_Population_Size
+data['Mutation'] = list_Mutation_Rate
+data['Tournament'] = list_Tournament_Size
+data['Elitism'] = list_Number_for_Elitism
+data['Iteration'] = list_Number_of_Iterations 
+
+pkl_file = open('GA_Subarray_Selection/Results/score_elitism.pkl','wb')
+pickle.dump(data,pkl_file)
+pkl_file.close()
+
+x = list_Number_for_Elitism
+y = Score_Storage
+
 
 t=time.strftime("%d-%m-%Y_%H:%M:%S")
 plt.figure()
-plt.errorbar(x,y,error_y,fmt="go-",ecolor="b",lw=2,capsize=5)
+plt.plot(x,y)
 plt.xlabel('Number for Elitism',fontsize=15)
 plt.ylabel('Fitness value',fontsize=15)
 plt.savefig('GA_Subarray_Selection/Results/Dispersion_Score_Elitism_'+str(t)+'.png')
-plt.show()
+
