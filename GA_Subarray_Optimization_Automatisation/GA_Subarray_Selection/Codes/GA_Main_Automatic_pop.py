@@ -19,6 +19,9 @@ __email__="lassis@etud.insa-toulouse.fr"
     2018.04.10:
         - update for automation
         
+    2018.04.13:
+        - updating the output
+        
 '''
 import numpy as np
 from pylab import *
@@ -550,13 +553,14 @@ for w in range(0,len(list_Number_of_Iterations)):
 	    print '\n'
 
 
-data = []
+data = {}
 
-data.append(Score_Storage)
-data.append(list_Population_Size)
-data.append(list_Mutation_Rate)
-data.append(list_Tournament_Size)
-data.append(list_Number_for_Elitism)
+data['Score'] = Score_Storage
+data['Population'] = list_Population_Size
+data['Mutation'] = list_Mutation_Rate
+data['Tournament'] = list_Tournament_Size
+data['Elitism'] = list_Number_for_Elitism
+data['Iteration'] = list_Number_of_Iterations 
 
 pkl_file = open('GA_Subarray_Selection/Results/score_population.pkl','wb')
 pickle.dump(data,pkl_file)
@@ -572,4 +576,4 @@ plt.plot(x,y)
 plt.xlabel('Number for Population',fontsize=15)
 plt.ylabel('Fitness value',fontsize=15)
 plt.savefig('GA_Subarray_Selection/Results/Dispersion_Score_Population_'+str(t)+'.png')
-plt.show()
+
