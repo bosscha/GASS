@@ -11,7 +11,7 @@ __email__="lassis@etud.insa-toulouse.fr"
                   with parameters given in a file '.txt'
     Context : ALMA internship
     Date created: 06/2017
-    Date last modified: 09/2017
+    Date last modified: 01/2019
     Python Version: 2.7
 '''
 import numpy as np
@@ -19,12 +19,11 @@ from pylab import *
 import pandas as pd
 import csv
 import time
-import sys
-import os
-import glob
-import shutil
+import sys , os , glob ,shutil
+
 DOSSIER_COURRANT = os.path.dirname(os.path.abspath(__file__))
 DOSSIER_PARENT = os.path.dirname(DOSSIER_COURRANT)
+
 sys.path.append(os.path.join(DOSSIER_PARENT,"Codes"))
 import classes as c
 import evolution as ev
@@ -41,9 +40,12 @@ import compute_constraints_subarray as ccs
 #==================================================================================================================================
 #==================================================================================================================================
 File_Inputs='GA_Subarray_Selection/GA_Inputs.txt'
+File_Inputs= '/home/stephane/Science/ALMA/ArrayConfig/GASS/products/Input_Files/GA_Inputs_O-10.txt'
+
 inputs= pd.read_csv(
         File_Inputs, comment='#', names=['NAMES','VALUES'], sep='\s+'+':'+'\s+')
 Names=inputs[['NAMES']].values
+
 Values=inputs[['VALUES']].values
 for i in range(0,len(Names)):
 	if Names[i]=='File_Parameters':
