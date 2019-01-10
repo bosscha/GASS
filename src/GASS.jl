@@ -4,16 +4,19 @@ module GASS
 
 using PyCall
 using DataFrames
+import CSV
 
 using Statistics , Distributions ,Random
 
-## For wavelet in imaging
-import Interpolations , Images , Base
-
 import PyPlot
 
-## include all the types
 include("types.jl")
+export inputCfg , observation , subarrayParameters , weight , GA , population
 
+include("inputcfg.jl")
+export input_parameters , parse_input , parse_parameters , read_input_cfg
+
+include("utils.jl")
+export init_pop
 
 end

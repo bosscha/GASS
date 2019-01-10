@@ -3,12 +3,10 @@
 rootdir = "/home/stephane/Science/ALMA/ArrayConfig/GASS"
 
 push!(LOAD_PATH,"$rootdir/master/src")
-Using GASS
+using GASS
 
 ## directory
-datadir = "$rootdir/master/data"
 wdir    = "$rootdir/products"
-plotdir = "$rootdir/products/test"
 
 cd(wdir)
 
@@ -18,8 +16,8 @@ macro main(inpfile)
     println(inpcfg)
     
     ## parameters inputs
-    res= input_parameters(inpcfg[:file_parameters])
-    paramcfg= parse_param(res)
+    res= input_parameters(inpcfg.file_parameters)
+    paramcfg= parse_parameters(res)
     println(paramcfg)
 end
 
