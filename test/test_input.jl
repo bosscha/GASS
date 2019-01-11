@@ -11,14 +11,8 @@ wdir    = "$rootdir/products"
 cd(wdir)
 
 macro main(inpfile)
-    res= input_parameters(inpfile)
-    inpcfg= parse_input(res)
-    println(inpcfg)
-    
-    ## parameters inputs
-    res= input_parameters(inpcfg.file_parameters)
-    paramcfg= parse_parameters(res)
-    println(paramcfg)
+    res= read_cfg(inpfile)
+    println(res)
 end
 
 @main("../master/data/GA_Inputs_O-10.txt.julia")

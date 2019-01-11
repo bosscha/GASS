@@ -18,6 +18,7 @@ end
 struct subarrayParameters
         Pads_Per_Subarray::Vector{Int}
         Subarray_Name::Vector{String}
+        Subrange::Array{UnitRange{Int64},1}
         Spatial_Resolution::Vector{Float64}
         Maximum_Recoverable_Scale::Vector{Float64}
         Elongation::Vector{Float64}
@@ -42,11 +43,12 @@ struct GA
     Number_Elitism::Int
 end
 
-struct population
+struct cfg
     arr::AbstractDataFrame 
     obs::observation
     sub::subarrayParameters
     wei::weight
     ga::GA
+    inp::inputCfg
 end
 

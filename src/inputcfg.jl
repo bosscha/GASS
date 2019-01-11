@@ -40,8 +40,9 @@ end
 
 ## parse parameter file for the subarray constraints
 ## No consistency check yet...
-function parse_parameters(input_param)
+function parse_parameters(input_param , inpcfg)
     let
+        arraycfg= 0 
         obs= 0
         sub= 0
         wei= 0
@@ -79,7 +80,7 @@ function parse_parameters(input_param)
             if pair[1] == "Array_Configuration_File"
                 Array_Configuration_File= pair[2]
             elseif pair[1] == "Observatory_Latitude"
-                Observatory_Latitude= parse(Float64, pair[2]) 
+                Observatory_Latitude= parse(Float64, pair[2])    
             elseif pair[1] == "Source_Declination"
                 Source_Declination= parse(Float64, pair[2])
             elseif pair[1] == "Source_Hour_Angle"
@@ -134,30 +135,51 @@ function parse_parameters(input_param)
                         v==nothing ? 0.0 : v),split(pair[2],","))
             end
         end
+        
+        arrcfg = CSV.read(convert(String,Array_Configuration_File), datarow=4 , header=["X" , "Y", "Z" , "diam" , "name"] , delim= " ")
+           
+        subrange = []
+        start= 1
+            for npad in Pads_Per_Subarray
+                push!(subrange,start:start+npad-1)
+                start= start+npad
+            end
+        
         ### setting the struct.
         obs= observation(Array_Configuration_File, Observatory_Latitude , Source_Declination,Source_Hour_Angle,
             Subarray_Number)
-        sub= subarrayParameters(Pads_Per_Subarray, Subarray_Name , Spatial_Resolution,
+        sub= subarrayParameters(Pads_Per_Subarray, Subarray_Name , subrange, Spatial_Resolution,
             Maximum_Recoverable_Scale , Elongation, Sidelobe_Level)
         wei= weight(Weight_Subarray,Weight_Spatial_Resolution,Weight_Maximum_Recoverable_Scale, 
             Weight_Elongation,Weight_Sidelobe_Levels)
         ga= GA(Number_Iterations , Population_Size,Termination_Condition ,Threshold ,
             Mutation_Rate , Tournament_Size ,Number_Elitism)
+          
+        ### population setting
+        res= cfg(arrcfg , obs , sub , wei , ga, inpcfg)
         
-   return(obs, sub , wei , ga)     
+   return(res)     
 end
 end
 
-
-## Read all the inputs from the input file
-function read_input_cfg(inpfile)
+## main function to read the cfg and check it.
+function read_cfg(inpfile)
     res= input_parameters(inpfile)
     inpcfg= parse_input(res)
-    
     ## parameters inputs
     res= input_parameters(inpcfg.file_parameters)
-    paramcfg= parse_parameters(res)
+    cfg= parse_parameters(res , inpcfg)
+    check_consistency(cfg)
     
-    return(inpcfg , paramcfg)
+    return(cfg)
+end
+
+function check_consistency(cfg::cfg)
+    nsubpads= sum(cfg.sub.Pads_Per_Subarray)
+    npads= nrow(cfg.arr)
+    if nsubpads != npads
+        error("##Error: Subarray pads are not equal to the total of pads.")
+    end
+    return(true)
 end
 
