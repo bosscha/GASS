@@ -1,12 +1,14 @@
 ## types for GASS
 ##
 
+###########################
 struct inputCfg
     file_parameters::String
     folder_results::String
     verbose::Bool
 end
 
+##########################
 struct observation
     Array_Configuration_File::String
     Observatory_Latitude::Float64
@@ -15,6 +17,7 @@ struct observation
     Subarray_Number::Int
 end
 
+############################
 struct subarrayParameters
         Pads_Per_Subarray::Vector{Int}
         Subarray_Name::Vector{String}
@@ -25,6 +28,7 @@ struct subarrayParameters
         Sidelobe_Level::Vector{Float64}
 end
 
+###############################
 struct weight
     Weight_Subarray::Vector{Float64}
     Weight_Spatial_Resolution::Vector{Float64}
@@ -33,6 +37,7 @@ struct weight
     Weight_Sidelobe_Levels::Vector{Float64}
 end
 
+############################
 struct GA
     Number_Iterations::Int
     Population_Size::Int
@@ -43,6 +48,7 @@ struct GA
     Number_Elitism::Int
 end
 
+############################
 struct cfg
     arr::AbstractDataFrame 
     obs::observation
