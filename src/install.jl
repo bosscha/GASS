@@ -10,5 +10,6 @@ Pkg.add("Random")
 Pkg.add("CSV")
 Pkg.add("PyPlot")
 Pkg.add("Query")
+Pkg.add("LsqFit")
 
 println("## Package installation for GASS done...")
