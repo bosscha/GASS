@@ -4,6 +4,7 @@ module GASS
 
 using PyCall
 using DataFrames
+using Printf
 import CSV
 
 using Statistics , Distributions ,Random

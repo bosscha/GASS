@@ -1,0 +1,16 @@
+########################################################################################################################
+########################################################################################################################
+#                                                                                                                      #
+#                INPUTS - Subarray selection using Genetic Algorithm                                                   #
+#                JULIA version                                                                                         #                    
+########################################################################################################################
+########################################################################################################################
+# NAMES : VALUES #
+# !! Careful : the delimiter between the Names and the Values of the inputs must be ":" !!
+
+File_Parameters : ../master/data/GA_Parameters_O-3.txt.julia
+
+Display_Screen_Results : true
+
+Folder_Results : /home/stephane/Science/ALMA/ArrayConfig/GASS/products/results
+

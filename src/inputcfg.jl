@@ -163,12 +163,20 @@ end
 end
 
 ## main function to read the cfg and check it.
-function read_cfg(inpfile)
+function read_cfg(inpfile ; verbose=false)
     res= input_parameters(inpfile)
     inpcfg= parse_input(res)
     ## parameters inputs
     res= input_parameters(inpcfg.file_parameters)
     cfg= parse_parameters(res , inpcfg)
+    if verbose
+      @printf("## Input Parameters for GASS \n")
+      @printf("## Configuration file: %s \n", cfg.obs.Array_Configuration_File)
+      @printf("## Obs. Latitude: %3.3f \n", cfg.obs.Observatory_Latitude)
+      @printf("## Source Declination: %3.1f \n", cfg.obs.Source_Declination)
+      @printf("## HA: %3.1f \n", cfg.obs.Source_Hour_Angle)
+      @printf("## Subarray number: %d \n", cfg.obs.Subarray_Number)
+    end
     check_consistency(cfg)
     
     return(cfg)

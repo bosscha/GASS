@@ -11,7 +11,7 @@ wdir    = "$rootdir/products"
 cd(wdir)
 
 macro main(inpfile)
-    res= read_cfg(inpfile)
+    res= read_cfg(inpfile , verbose=true)
     println(res)
 end
 
