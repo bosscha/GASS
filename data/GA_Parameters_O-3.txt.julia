@@ -21,7 +21,7 @@
 Array_Configuration_File : ../master/data/O-3.cfg
 Observatory_Latitude : -23.0262015
 Source_Declination : -50
-Source_Hour_Angle : -1		  
+Source_Hour_Angle : 0		  
 Subarray_Number : 4
 Pads_Per_Subarray : 30,10,7,3
 Weights_Subarray  : 0.25,0.25,0.25,0.25

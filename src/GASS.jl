@@ -5,12 +5,11 @@ module GASS
 using PyCall
 using DataFrames
 using Printf
-import CSV
 using LsqFit , FFTW
-
 using Statistics , Distributions ,Random
 using StatsBase
 
+import CSV
 import PyPlot
 
 include("types.jl")
@@ -23,6 +22,6 @@ include("utils.jl")
 export init_pop
 
 include("simobserve.jl")
-export calc_baselines , calc_uv , calc_dirtybeam , fit_beam
+export calc_baselines , calc_uv , calc_dirtybeam , fit_beam , calc_mrs
 
 end

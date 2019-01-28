@@ -62,7 +62,7 @@ function calc_dirtybeam(uv, npix=511, sizefit=255 ; robust=2)
         println("##UV-gridding error, npix too small...")
     end
     
-    binuv= range(-duv*npix/2, stop=duv*npix/2,npix, length=npix)
+    binuv= range(-duv*npix/2, stop=duv*npix/2, length=npix)
     Hh= fit(Histogram, (uv[1,:] , uv[2,:]) , (binuv , binuv))
     H= Hh.weights
 
@@ -134,3 +134,13 @@ function fit_beam(beam , dr)
     return(b)
 end
 
+#################
+### MRS in arcsec at 100 GHz
+function calc_mrs(uv)
+    minbl = minimum(uv[:,1].^2 .+ uv[:,2].^2)
+    lmin= sqrt(minbl)
+    ν= 100
+    
+    mrs= 37100 / (lmin*ν)
+    return(mrs)
+end
