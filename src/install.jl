@@ -11,5 +11,6 @@ Pkg.add("CSV")
 Pkg.add("PyPlot")
 Pkg.add("Query")
 Pkg.add("LsqFit")
+Pkg.add("FFTW")
 
 println("## Package installation for GASS done...")

@@ -58,3 +58,14 @@ struct cfg
     inp::inputCfg
 end
 
+############################
+## size are in arcsecs
+struct synthbeam
+    bx::Float64       ## bx inarcsec
+    by::Float64       ## by i arcsec
+    ar::Float64       ## angular resolution in arcsec
+    e::Float64        ## excentricity
+    sidelobe::Float64 ## sidelobe levels in percentage
+end
+
+
