@@ -145,9 +145,11 @@ function parse_parameters(input_param , inpcfg)
                 start= start+npad
             end
         
+        Antenna_Number= size(arrcfg,1)
+        
         ### setting the struct.
         obs= observation(Array_Configuration_File, Observatory_Latitude , Source_Declination,Source_Hour_Angle,
-            Subarray_Number)
+            Antenna_Number ,Subarray_Number)
         sub= subarrayParameters(Pads_Per_Subarray, Subarray_Name , subrange, Spatial_Resolution,
             Maximum_Recoverable_Scale , Elongation, Sidelobe_Level)
         wei= weight(Weight_Subarray,Weight_Spatial_Resolution,Weight_Maximum_Recoverable_Scale, 
@@ -175,6 +177,7 @@ function read_cfg(inpfile ; verbose=false)
       @printf("### Obs. Latitude: %3.3f \n", cfg.obs.Observatory_Latitude)
       @printf("### Source Declination: %3.1f \n", cfg.obs.Source_Declination)
       @printf("### HA: %3.1f \n", cfg.obs.Source_Hour_Angle)
+      @printf("### Antenna number: %d \n", cfg.obs.Antenna_Number)
       @printf("### Subarray number: %d \n", cfg.obs.Subarray_Number)
       @printf("##\n")
       

@@ -14,6 +14,7 @@ struct observation
     Observatory_Latitude::Float64
     Source_Declination::Float64
     Source_Hour_Angle::Float64
+    Antenna_Number::Int
     Subarray_Number::Int
 end
 

@@ -123,8 +123,10 @@ function fit_beam(beam , dr)
     
     gaussian_sigma_to_fwhm=2.3548200450309493
     
-    bx= f.param[4]*dr*gaussian_sigma_to_fwhm
-    by= f.param[5]*dr*gaussian_sigma_to_fwhm  
+    ## some bad fitting turn to be negative....
+    bx= abs(f.param[4]*dr*gaussian_sigma_to_fwhm)
+    by= abs(f.param[5]*dr*gaussian_sigma_to_fwhm)  
+    
     e= max(bx/by, by/bx)
     ar= sqrt(bx*by)
     sidelobe= maximum(f.resid * 100 / f.param[1])
