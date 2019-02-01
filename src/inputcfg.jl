@@ -198,6 +198,13 @@ function read_cfg(inpfile ; verbose=false)
       @printf("### Elitism: %d \n",cfg.ga.Number_Elitism)
       @printf("##\n")
       
+      @printf("## Weights\n")
+      println("### Subarray weights: ",cfg.wei.Weight_Subarray)
+      println("### AR weights: ",cfg.wei.Weight_Spatial_Resolution)
+      println("### MRS weights: ",cfg.wei.Weight_Maximum_Recoverable_Scale)
+      println("### elongation weights: ",cfg.wei.Weight_Elongation)
+      println("### sidelobe weights: ",cfg.wei.Weight_Sidelobe_Levels)
+      @printf("##\n")
     end
     check_consistency(cfg)
     
