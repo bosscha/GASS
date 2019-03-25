@@ -64,7 +64,7 @@ Weight_Sidelobe_Levels               : 0.25 , 0.25 , 0.25 , 0.25
 # Note : "Tournament_Size", "Number_for_Elitism" must be integers in [0,Population_Size].
 # Note : "Mutation_Rate" must be a float in [0,1].
 
-Number_Iterations : 10
+Number_Iterations : 5
 Population_Size : 20
 Termination_Condition : false
 Threshold : -0.05
