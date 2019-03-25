@@ -2,14 +2,14 @@
 ##
 
 ###########################
-struct inputCfg
+mutable struct  inputCfg
     file_parameters::String
     folder_results::String
     verbose::Bool
 end
 
 ##########################
-struct observation
+mutable struct  observation
     Array_Configuration_File::String
     Observatory_Latitude::Float64
     Source_Declination::Float64
@@ -19,7 +19,7 @@ struct observation
 end
 
 ############################
-struct subarrayParameters
+mutable struct  subarrayParameters
         Pads_Per_Subarray::Vector{Int}
         Subarray_Name::Vector{String}
         Subrange::Array{UnitRange{Int64},1}
@@ -30,7 +30,7 @@ struct subarrayParameters
 end
 
 ###############################
-struct weight
+mutable struct  weight
     Weight_Subarray::Vector{Float64}
     Weight_Spatial_Resolution::Vector{Float64}
     Weight_Maximum_Recoverable_Scale::Vector{Float64}
@@ -39,7 +39,7 @@ struct weight
 end
 
 ############################
-struct GA
+mutable struct GA
     Number_Iterations::Int
     Population_Size::Int
     Termination_Condition::Bool
@@ -50,7 +50,8 @@ struct GA
 end
 
 ############################
-struct cfg
+############################
+mutable struct cfg
     arr::AbstractDataFrame 
     obs::observation
     sub::subarrayParameters
@@ -67,6 +68,16 @@ struct synthbeam
     ar::Float64       ## angular resolution in arcsec
     e::Float64        ## excentricity
     sidelobe::Float64 ## sidelobe levels in percentage
+end
+
+#############################
+#############################
+mutable struct population
+    age::Int32                        ## age
+    subarr::Array{Array{Int,1},2}     ## {Population,Subindices}
+    fitness::Array{Float64,2}         ## fitness of each subarray
+    score::Array{Float64,1}           ## global score of each set
+    param::Array{Dict{String,Float64},2}    ## beam and mrs for each subarray    
 end
 
 

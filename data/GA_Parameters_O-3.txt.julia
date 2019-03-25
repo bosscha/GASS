@@ -65,7 +65,7 @@ Weight_Sidelobe_Levels               : 0.25 , 0.25 , 0.25 , 0.25
 # Note : "Mutation_Rate" must be a float in [0,1].
 
 Number_Iterations : 5
-Population_Size : 20
+Population_Size : 10
 Termination_Condition : false
 Threshold : -0.05
 Mutation_Rate : 0.05
