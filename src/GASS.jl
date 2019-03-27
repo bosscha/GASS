@@ -24,4 +24,8 @@ export init_pop
 include("simobserve.jl")
 export calc_baselines , calc_uv , calc_dirtybeam , fit_beam , calc_mrs
 
+include("evolution.jl")
+export fitness_subarray , create_population , get_elitism , get_parents , get_crossover1 , 
+  get_mutation , get_evolution , gass_optimization
+
 end

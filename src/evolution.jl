@@ -34,10 +34,10 @@ function fitness_subarray(cfg, subarrid, subind)
 end
 
 
-## Creation of a population
-## 
+### Creation of a population
+### 
 function create_population(cfg)
-    
+     
     pop= Array{Array{Int,1},2}(undef,cfg.ga.Population_Size,  cfg.obs.Subarray_Number)
     fitness= Array{Float64,2}(undef,cfg.ga.Population_Size,  cfg.obs.Subarray_Number)
     score=  Array{Float64,1}(undef,cfg.ga.Population_Size)
@@ -49,7 +49,7 @@ function create_population(cfg)
         Random.shuffle!(subind)
         for j in 1:cfg.obs.Subarray_Number
             pop[i,j]= subind[cfg.sub.Subrange[j]]
-            fitness[i,j] , res= _fitness_subarray(cfg, j, pop[i,j])
+            fitness[i,j] , res= fitness_subarray(cfg, j, pop[i,j])
             println(i," ",j," ",fitness[i,j])
             println(res)
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
@@ -91,7 +91,7 @@ function get_parents(cfg, pop::population)
     return(iparent1 , iparent2)
 end
 
-#### auxiliary function
+#### auxiliary functions
 function flatten_subarray(cfg, subarr)
     subflat= zeros(Int, cfg.obs.Antenna_Number)
     
@@ -116,12 +116,13 @@ function wrap_subarray(cfg, sub)
     return(subarray)
 end
 
+###
 ### crossover (#1) using the two parents
 ###
 function get_crossover1(cfg, pop::population , parents)
     nmax= cfg.obs.Antenna_Number
-    p1= _flatten_subarray(cfg, pop.subarr[parents[1],:])
-    p2= _flatten_subarray(cfg, pop.subarr[parents[2],:])
+    p1= flatten_subarray(cfg, pop.subarr[parents[1],:])
+    p2= flatten_subarray(cfg, pop.subarr[parents[2],:])
     child= zeros(Int, nmax)
 
     pivot= rand(1:nmax,2)
@@ -144,9 +145,7 @@ function get_crossover1(cfg, pop::population , parents)
         child[i]= p2[cnterp2]
     end  
     
-    # println(child)
-    c= _wrap_subarray(cfg, child)
-    # println(c)
+    c= wrap_subarray(cfg, child)
     return(child)
 end
 
@@ -205,7 +204,8 @@ function get_evolution(cfg, pi::population)
     for i in 1:nelit
         for j in 1:cfg.obs.Subarray_Number
             pinew[i,j]= pelit[i][1][j]
-            fitness[i,j], res= _fitness_subarray(cfg, j, pinew[i,j])
+            fitness[i,j], res= fitness_subarray(cfg, j, pinew[i,j])
+            paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
             println(i," ",j," ",fitness[i,j])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])
@@ -214,19 +214,46 @@ function get_evolution(cfg, pi::population)
     println("fitness of crossover..")
     for i in nelit+1:npop
         println(crosspop[i-nelit])
-        pwrap= _wrap_subarray(cfg, crosspop[i-nelit])
+        pwrap= wrap_subarray(cfg, crosspop[i-nelit])
         println(pwrap)
         for j in 1:cfg.obs.Subarray_Number
             pinew[i,j]= pwrap[j]
-            fitness[i,j] , res= _fitness_subarray(cfg, j, pinew[i,j])
+            fitness[i,j] , res= fitness_subarray(cfg, j, pinew[i,j])
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
             println(i," ",j," ",fitness[i,j])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])
     end
     
-    popnew= _population(age, pinew, fitness, score, paramsub)
+    popnew= population(age, pinew, fitness, score, paramsub)
     
     return(popnew)
+end
+
+### Run the full optimization process for a cfg set of params.
+###
+function gass_optimization(cfg)
+    println("\n##")
+    println("## Creating the population...")
+    p0= create_population(cfg)
+    pelit=  get_elitism(cfg, p0)
+    parent= get_parents(cfg, p0)
+    child=  get_crossover1(cfg, p0 , parent)
+    mutated= get_mutation(cfg, child)
+    
+    ## evolution
+    println("\n## Evolution...")
+    
+    species= []
+    for i in 1:cfg.ga.Number_Iterations
+        #if (i % 10) == 0
+            @printf("\n## Iteration: %d \n",i)
+        #end
+        p1= get_evolution(cfg, p0)
+        push!(species,p1)
+        p0=p1
+    end
+    
+   return(species)
 end
 
