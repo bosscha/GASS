@@ -13,7 +13,7 @@ import CSV
 import PyPlot
 
 include("types.jl")
-export inputCfg , observation , subarrayParameters , weight , GA , cfg
+export inputCfg , observation , subarrayParameters , weight , GA , cfg , synthbeam, population
 
 include("inputcfg.jl")
 export input_parameters , parse_input , parse_parameters , read_cfg
