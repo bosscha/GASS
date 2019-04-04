@@ -109,6 +109,9 @@ function parse_parameters(input_param , inpcfg)
                         v==nothing ? 0.0 : v),split(pair[2],","))  
             elseif pair[1] == "Subarray_Name" 
                 Subarray_Name= split(pair[2],",")
+                for i in 1:length(Subarray_Name)
+                  Subarray_Name[i]= strip(Subarray_Name[i])
+                end
             elseif pair[1] == "Spatial_Resolution"
                 Spatial_Resolution= map(x->(v = tryparse(Float64,x); 
                         v==nothing ? 0.0 : v),split(pair[2],","))
