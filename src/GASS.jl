@@ -9,7 +9,7 @@ using LsqFit , FFTW
 using Statistics , Distributions ,Random
 using StatsBase
 
-import CSV
+import CSV , JLD
 import PyPlot
 
 include("types.jl")
@@ -28,4 +28,7 @@ include("evolution.jl")
 export fitness_subarray , create_population , get_elitism , get_parents , get_crossover1 , 
   get_mutation , get_evolution , gass_optimization
 
+include("output.jl")
+export save_CASAarr , sort_population , full_run
+  
 end
