@@ -24,7 +24,7 @@ Source_Declination : -50
 Source_Hour_Angle : 0		  
 Subarray_Number : 4
 Pads_Per_Subarray : 30,10,7,3
-Weights_Subarray  : 0.25,0.25,0.25,0.25
+Weights_Subarray  : 0.3,0.3,0.2,0.2
 
 #—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 #     #
@@ -64,8 +64,8 @@ Weight_Sidelobe_Levels               : 0.25 , 0.25 , 0.25 , 0.25
 # Note : "Tournament_Size", "Number_for_Elitism" must be integers in [0,Population_Size].
 # Note : "Mutation_Rate" must be a float in [0,1].
 
-Number_Iterations : 5
-Population_Size : 10
+Number_Iterations : 30
+Population_Size : 100
 Termination_Condition : false
 Threshold : -0.05
 Mutation_Rate : 0.05
