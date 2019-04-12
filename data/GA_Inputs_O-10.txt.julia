@@ -12,5 +12,5 @@ File_Parameters : ../master/data/GA_Parameters_O-10.txt.julia
 
 Display_Screen_Results : true
 
-Folder_Results : /home/stephane/Science/ALMA/ArrayConfig/GASS/products/results
+Folder_Results : ../products/results
 
