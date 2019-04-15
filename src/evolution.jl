@@ -2,6 +2,7 @@
 ##
 
 
+
 ## fitness function for a subarray
 ## cfg: GASS parameters
 ## subarrid: subarray id (int)
