@@ -18,4 +18,4 @@ function main(inpfile)
     println(res)
 end
 
-pop= @time main("../master/data/GA_Inputs_O-3.txt.julia")
+pop= @time main("../master/data/GA_Inputs_O-1.txt.julia")
