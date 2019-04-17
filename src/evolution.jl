@@ -2,6 +2,7 @@
 ##
 
 
+
 ## fitness function for a subarray
 ## cfg: GASS parameters
 ## subarrid: subarray id (int)
@@ -16,9 +17,10 @@ function fitness_subarray(cfg, subarrid, subind)
     b= fit_beam(h , dr)
     mrs= calc_mrs(uv)
     
-    #@printf("## subarray fitness \n")
-    #@printf("## beam:")
-    #println(b)
+    println("### subarr fitness")
+    println(subarr)
+    @printf("## beam:")
+    println(b)
     #@printf("## MRS: %3.3f \n", mrs)
     
     res= 0
@@ -50,8 +52,9 @@ function create_population(cfg)
         for j in 1:cfg.obs.Subarray_Number
             pop[i,j]= subind[cfg.sub.Subrange[j]]
             fitness[i,j] , res= fitness_subarray(cfg, j, pop[i,j])
-            println(i," ",j," ",fitness[i,j])
-            println(res)
+            
+            @printf("### subarr %d, %d ; fitness: %f" , i,j,fitness[i,j])
+            
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])
@@ -206,7 +209,7 @@ function get_evolution(cfg, pi::population)
             pinew[i,j]= pelit[i][1][j]
             fitness[i,j], res= fitness_subarray(cfg, j, pinew[i,j])
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
-            println(i," ",j," ",fitness[i,j])
+            #println(i," ",j," ",fitness[i,j])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])
     end    
@@ -220,7 +223,7 @@ function get_evolution(cfg, pi::population)
             pinew[i,j]= pwrap[j]
             fitness[i,j] , res= fitness_subarray(cfg, j, pinew[i,j])
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
-            println(i," ",j," ",fitness[i,j])
+            #println(i," ",j," ",fitness[i,j])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])
     end
@@ -251,7 +254,7 @@ function gass_optimization(cfg)
         #end
         p1= get_evolution(cfg, p0)
         push!(species,p1)
-        p0=p1
+        p0= p1
     end
     
    return(species)
