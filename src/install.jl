@@ -15,5 +15,7 @@ Pkg.add("FFTW")
 Pkg.add("StatsBase")
 Pkg.add("Distances")
 Pkg.add("JLD")
+Pkg.build("HDF5")
+
 
 println("## Package installation for GASS done...")

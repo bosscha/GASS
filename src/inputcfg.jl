@@ -40,7 +40,7 @@ end
 
 ## parse parameter file for the subarray constraints
 ## No consistency check yet...
-function parse_parameters(input_param , inpcfg)
+function parse_parameters(input_param )
     let
         arraycfg= 0 
         obs= 0
@@ -49,6 +49,8 @@ function parse_parameters(input_param , inpcfg)
         ga= 0
         
         Array_Configuration_File= "alma.cfg"
+        Result_Folder= "."
+        Display_Verbose= true
         Observatory_Latitude= -23.0262015
         Source_Declination= -30
         Source_Hour_Angle = -1 
@@ -79,6 +81,10 @@ function parse_parameters(input_param , inpcfg)
         for pair in input_param
             if pair[1] == "Array_Configuration_File"
                 Array_Configuration_File= pair[2]
+            elseif pair[1] == "Result_Folder"
+                Result_Folder= pair[2]
+            elseif pair[1] == "Display_Verbose"
+                Display_Verbose=  pair[2]=="true" ? true : false
             elseif pair[1] == "Observatory_Latitude"
                 Observatory_Latitude= parse(Float64, pair[2])    
             elseif pair[1] == "Source_Declination"
@@ -151,7 +157,7 @@ function parse_parameters(input_param , inpcfg)
         Antenna_Number= size(arrcfg,1)
         
         ### setting the struct.
-        obs= observation(Array_Configuration_File, Observatory_Latitude , Source_Declination,Source_Hour_Angle,
+        obs= observation(Array_Configuration_File, Result_Folder, Display_Verbose, Observatory_Latitude , Source_Declination,Source_Hour_Angle,
             Antenna_Number ,Subarray_Number)
         sub= subarrayParameters(Pads_Per_Subarray, Subarray_Name , subrange, Spatial_Resolution,
             Maximum_Recoverable_Scale , Elongation, Sidelobe_Level)
@@ -161,22 +167,20 @@ function parse_parameters(input_param , inpcfg)
             Mutation_Rate , Tournament_Size ,Number_Elitism)
           
         ### population setting
-        res= cfg(arrcfg , obs , sub , wei , ga, inpcfg)
+        res= cfg(arrcfg , obs , sub , wei , ga)
         
    return(res)     
 end
 end
 
 ## main function to read the cfg and check it.
-function read_cfg(inpfile ; verbose=false)
+function read_cfg(inpfile)
     res= input_parameters(inpfile)
-    inpcfg= parse_input(res)
-    ## parameters inputs
-    res= input_parameters(inpcfg.file_parameters)
-    cfg= parse_parameters(res , inpcfg)
-    if verbose
+    cfg= parse_parameters(res)
+    if cfg.obs.Display_Verbose
       @printf("## Input Parameters for GASS \n")
       @printf("### Configuration file: %s \n", cfg.obs.Array_Configuration_File)
+      @printf("### Result folder: %s \n", cfg.obs.Result_Folder)
       @printf("### Obs. Latitude: %3.3f \n", cfg.obs.Observatory_Latitude)
       @printf("### Source Declination: %3.1f \n", cfg.obs.Source_Declination)
       @printf("### HA: %3.1f \n", cfg.obs.Source_Hour_Angle)

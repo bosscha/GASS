@@ -6,7 +6,7 @@
 ########################################################################################################################
 
 Array_Configuration_File : ../master/data/O-1.cfg
-Folder_Results : ../products
+Result_Folder : ../products
 Display_Verbose : true
 Observatory_Latitude : -23.0262015
 Source_Declination : -50

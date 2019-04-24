@@ -11,6 +11,8 @@ end
 ##########################
 mutable struct  observation
     Array_Configuration_File::String
+    Result_Folder::String
+    Display_Verbose::Bool
     Observatory_Latitude::Float64
     Source_Declination::Float64
     Source_Hour_Angle::Float64
@@ -57,7 +59,6 @@ mutable struct cfg
     sub::subarrayParameters
     wei::weight
     ga::GA
-    inp::inputCfg
 end
 
 ############################

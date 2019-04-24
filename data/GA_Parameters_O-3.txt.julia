@@ -19,6 +19,8 @@
 # Note : the complete path is needed.
 
 Array_Configuration_File : ../master/data/O-3.cfg
+Result_Folder : ../products
+Display_Verbose : true
 Observatory_Latitude : -23.0262015
 Source_Declination : -50
 Source_Hour_Angle : 0		  
