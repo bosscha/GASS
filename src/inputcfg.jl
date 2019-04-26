@@ -145,7 +145,7 @@ function parse_parameters(input_param )
             end
         end
         
-        arrcfg = CSV.read(convert(String,Array_Configuration_File), datarow=4 , header=["X" , "Y", "Z" , "diam" , "name"] , delim= " ")
+        arrcfg = CSV.read(convert(String,Array_Configuration_File), datarow=4 , header=["X" , "Y", "Z" , "diam" , "name"] ,  ignorerepeated=true, delim= " ")
            
         subrange = []
         start= 1
@@ -174,7 +174,7 @@ end
 end
 
 ## main function to read the cfg and check it.
-function read_cfg(inpfile)
+function read_cfg(inpfile, check=true)
     res= input_parameters(inpfile)
     cfg= parse_parameters(res)
     if cfg.obs.Display_Verbose
@@ -213,7 +213,10 @@ function read_cfg(inpfile)
       println("### sidelobe weights: ",cfg.wei.Weight_Sidelobe_Levels)
       @printf("##\n")
     end
-    check_consistency(cfg)
+    
+    if check
+      check_consistency(cfg)
+    end
     
     return(cfg)
 end

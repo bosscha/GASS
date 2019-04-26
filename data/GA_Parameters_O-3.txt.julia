@@ -29,14 +29,7 @@ Pads_Per_Subarray : 30,10,7,3
 Weights_Subarray  : 0.3,0.3,0.2,0.2
 
 #—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#     #
-#    # #   IMPORTANT NOTE : the user must give the inputs for ALL the subarrays 
-#   # ! #                   (with the inputs names : ".._Sub_x" with "x" in [0,Number_of_Subarrays-1]) !!!
-#  # # # #
-# ——————————————————————————————————— #
-#   ———   Subarray  :          ———   #
-#         (8 inputs)                  # 
-# ——————————————————————————————————— #
+
 # !! Important remark : the objective constraints : "Spatial_Resolution" = objective value, "Maximum_Recoverable_Scale" = lower limit, "Elongation" and "Percentage_of_Sidelobes" = upper limits !!
 # Note : the objective constraints can be floats or integers.
 # Note : the weights might be positive numbers (floats or integers), then they are normalized by the algorithm.
@@ -53,25 +46,18 @@ Weight_Sidelobe_Levels               : 0.25 , 0.25 , 0.25 , 0.25
 
 
 #——————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#     #
-#    # #    OPTIMIZED GA PARAMETERS : "Number_of_Iterations : 200", "Population_Size : 150", "Mutation_Rate : 0.05",
-#   # ! #                            "Tournament_Size : 5", "Number_for_Elitism : 5" !!! 
-#  # # # #  !!! IF IN DOUBT DO NOT MODIFY !!!
-# ——————————————————————————————————— #
-#   ———   GA Parameters :       ———   #
-#            (7 inputs)               # 
-# ——————————————————————————————————— #                          
+                         
 # Note : "Number_of_Iterations", "Population Size" must be integers.
 # Note : "Termination_Condition : False" -> no termination condition to add to the number of iterations to stop the evolution of a population / "Termination_Condition : True" -> limit on the best score of a generation which value is given by the input "Threshold"
 # Note : "Tournament_Size", "Number_for_Elitism" must be integers in [0,Population_Size].
 # Note : "Mutation_Rate" must be a float in [0,1].
 
 Number_Iterations : 30
-Population_Size : 100
+Population_Size : 10
 Termination_Condition : false
 Threshold : -0.05
 Mutation_Rate : 0.05
 Tournament_Size : 5
-Number_Elitism : 5
+Number_Elitism : 2
 
 #—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
