@@ -129,7 +129,7 @@ function fit_beam(beam , dr)
     
     e= max(bx/by, by/bx)
     ar= sqrt(bx*by)
-    sidelobe= maximum(f.resid * 100 / f.param[1])
+    sidelobe= maximum(abs.(f.resid * 100 / f.param[1]))
     
     b = synthbeam(bx, by,ar,e, sidelobe)
     

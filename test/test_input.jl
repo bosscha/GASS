@@ -11,8 +11,8 @@ wdir    = "$rootdir/products"
 cd(wdir)
 
 function main(inpfile)
-    res= read_cfg(inpfile , verbose=true)
+    res= read_cfg(inpfile)
     println(res)
 end
 
-main("../master/data/GA_Inputs_O-3.txt.julia")
+main("../master/data/GA_Parameters_O-3.txt.julia")

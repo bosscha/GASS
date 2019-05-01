@@ -13,15 +13,17 @@ function fitness_subarray(cfg, subarrid, subind)
     
     bl= calc_baselines(subarr)
     uv= calc_uv(bl, cfg.obs.Source_Hour_Angle ,  cfg.obs.Source_Declination)
-    h , dr=  calc_dirtybeam(uv , 255, 127, robust=0.5)
+    h , dr=  calc_dirtybeam(uv , 512, 256, robust=0.5)
     b= fit_beam(h , dr)
     mrs= calc_mrs(uv)
     
-    println("### subarr fitness")
-    println(subarr)
-    @printf("## beam:")
-    println(b)
-    #@printf("## MRS: %3.3f \n", mrs)
+    if cfg.obs.Display_Verbose
+      println("### subarr fitness")
+      println(subarr)
+      @printf("## beam:")
+      println(b)
+      @printf("## MRS: %3.3f \n", mrs)
+    end
     
     res= 0
     res += cfg.wei.Weight_Spatial_Resolution[subarrid]*abs(b.ar-cfg.sub.Spatial_Resolution[subarrid])
@@ -53,8 +55,10 @@ function create_population(cfg)
             pop[i,j]= subind[cfg.sub.Subrange[j]]
             fitness[i,j] , res= fitness_subarray(cfg, j, pop[i,j])
             
-            @printf("### subarr %d, %d ; fitness: %f" , i,j,fitness[i,j])
-            
+            if cfg.obs.Display_Verbose
+              @printf("### subarr %d, %d ; fitness: %f \n" , i,j,fitness[i,j])
+            end
+
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])

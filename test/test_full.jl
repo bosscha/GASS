@@ -12,9 +12,10 @@ wdir    = "$rootdir/products"
 cd(wdir)
 
 function main(inpfile)
-    cfg = read_cfg(inpfile , verbose=true)
+    println("# GASS subarray optimization")
+    cfg = read_cfg(inpfile)
     
     res= full_run("test_" , cfg , true)
 end
 
-pop= @time main("../master/data/GA_Inputs_O-10.txt.julia")
+pop= @time main("../master/data/GA_Parameters_O-10.txt.julia")
