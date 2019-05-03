@@ -173,10 +173,26 @@ function parse_parameters(input_param )
 end
 end
 
+## Normalize the weights
+##
+function normalize_weight!(cfg)
+   k1= sum(cfg.wei.Weight_Spatial_Resolution) + sum(cfg.wei.Weight_Maximum_Recoverable_Scale) + 
+     sum(cfg.wei.Weight_Elongation) + sum(cfg.wei.Weight_Sidelobe_Levels)
+   cfg.wei.Weight_Spatial_Resolution= cfg.wei.Weight_Spatial_Resolution ./ k1
+   cfg.wei.Weight_Maximum_Recoverable_Scale= cfg.wei.Weight_Maximum_Recoverable_Scale ./ k1
+   cfg.wei.Weight_Elongation= cfg.wei.Weight_Elongation ./ k1
+   cfg.wei.Weight_Sidelobe_Levels= cfg.wei.Weight_Sidelobe_Levels ./ k1
+  
+  k2= sum(cfg.wei.Weight_Subarray)
+  cfg.wei.Weight_Subarray= cfg.wei.Weight_Subarray ./ k2
+end
+
 ## main function to read the cfg and check it.
 function read_cfg(inpfile, check=true)
     res= input_parameters(inpfile)
     cfg= parse_parameters(res)
+    normalize_weight!(cfg)
+    
     if cfg.obs.Display_Verbose
       @printf("## Input Parameters for GASS \n")
       @printf("### Configuration file: %s \n", cfg.obs.Array_Configuration_File)

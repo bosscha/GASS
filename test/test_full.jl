@@ -13,6 +13,7 @@ cd(wdir)
 
 function main(inpfile)
     println("# GASS subarray optimization")
+    println("## Parameter file: $inpfile")
     cfg = read_cfg(inpfile)
     
     res= full_run("test_" , cfg , true)

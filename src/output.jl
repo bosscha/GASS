@@ -41,7 +41,7 @@ function full_run(fileprefix::String, cfg::cfg, jld= false)
     save_CASAarr(fileprefix, cfg, psort.subarr[1,:])
     
     if jld
-       JLD.save(fileprefix*".jld", "evol", res)
+       JLD.save(fileprefix*".jld", "gass", res)
        println("## $fileprefix.jld written..")
     end
     

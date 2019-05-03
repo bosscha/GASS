@@ -17,13 +17,7 @@ function fitness_subarray(cfg, subarrid, subind)
     b= fit_beam(h , dr)
     mrs= calc_mrs(uv)
     
-    if cfg.obs.Display_Verbose
-      println("### subarr fitness")
-      println(subarr)
-      @printf("## beam:")
-      println(b)
-      @printf("## MRS: %3.3f \n", mrs)
-    end
+
     
     res= 0
     res += cfg.wei.Weight_Spatial_Resolution[subarrid]*abs(b.ar-cfg.sub.Spatial_Resolution[subarrid])
@@ -33,6 +27,14 @@ function fitness_subarray(cfg, subarrid, subind)
         cfg.sub.Sidelobe_Level[subarrid])*sign(b.sidelobe-cfg.sub.Sidelobe_Level[subarrid])
     res += cfg.wei.Weight_Maximum_Recoverable_Scale[subarrid]*abs(mrs-
         cfg.sub.Maximum_Recoverable_Scale[subarrid])*sign(cfg.sub.Maximum_Recoverable_Scale[subarrid]-mrs)
+    
+    if cfg.obs.Display_Verbose
+      println("### subarr fitness")
+      println(subarr)
+      @printf("## beam:")
+      println(b)
+      @printf("## MRS: %3.3f \n", mrs)
+    end
     
     return(res , [b , mrs])
 end
@@ -227,7 +229,6 @@ function get_evolution(cfg, pi::population)
             pinew[i,j]= pwrap[j]
             fitness[i,j] , res= fitness_subarray(cfg, j, pinew[i,j])
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])
-            #println(i," ",j," ",fitness[i,j])
         end
         score[i]= -sum(cfg.wei.Weight_Subarray[:] .* fitness[i,:])
     end
@@ -253,12 +254,13 @@ function gass_optimization(cfg)
     
     species= []
     for i in 1:cfg.ga.Number_Iterations
-        #if (i % 10) == 0
-            @printf("\n## Iteration: %d \n",i)
-        #end
         p1= get_evolution(cfg, p0)
         push!(species,p1)
         p0= p1
+        #if (i % 10) == 0
+            @printf("\n## Iteration: %d \n",i)
+            @printf("### Best score: %3.3f \n", p1.score[1])
+        #end
     end
     
    return(species)
