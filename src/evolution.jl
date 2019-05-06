@@ -17,8 +17,6 @@ function fitness_subarray(cfg, subarrid, subind)
     b= fit_beam(h , dr)
     mrs= calc_mrs(uv)
     
-
-    
     res= 0
     res += cfg.wei.Weight_Spatial_Resolution[subarrid]*abs(b.ar-cfg.sub.Spatial_Resolution[subarrid])
     res += cfg.wei.Weight_Elongation[subarrid]*abs(b.e-cfg.sub.Elongation[subarrid])*sign(b.e-
@@ -29,11 +27,12 @@ function fitness_subarray(cfg, subarrid, subind)
         cfg.sub.Maximum_Recoverable_Scale[subarrid])*sign(cfg.sub.Maximum_Recoverable_Scale[subarrid]-mrs)
     
     if cfg.obs.Display_Verbose
-      println("### subarr fitness")
+      println("### Subarray fitness")
       println(subarr)
       @printf("## beam:")
       println(b)
       @printf("## MRS: %3.3f \n", mrs)
+      @printf("## Fitness: %3.3f (smaller is better) \n", res)
     end
     
     return(res , [b , mrs])
@@ -58,7 +57,7 @@ function create_population(cfg)
             fitness[i,j] , res= fitness_subarray(cfg, j, pop[i,j])
             
             if cfg.obs.Display_Verbose
-              @printf("### subarr %d, %d ; fitness: %f \n" , i,j,fitness[i,j])
+              @printf("### subarr %d, %d ; fitness: %f (smaller is better) \n" , i,j,fitness[i,j])
             end
 
             paramsub[i,j]= Dict("ar"=>res[1].ar,"e"=>res[1].e, "sidelobe"=>res[1].sidelobe, "mrs"=>res[2])

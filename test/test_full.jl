@@ -19,4 +19,4 @@ function main(inpfile)
     res= full_run("test_" , cfg , true)
 end
 
-pop= @time main("../master/data/GA_Parameters_O-10.txt.julia")
+pop= @time main("../master/data/GA_Parameters_random.txt.julia")

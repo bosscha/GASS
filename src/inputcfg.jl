@@ -40,7 +40,7 @@ end
 
 ## parse parameter file for the subarray constraints
 ## No consistency check yet...
-function parse_parameters(input_param )
+function parse_parameters(input_param)
     let
         arraycfg= 0 
         obs= 0
@@ -91,7 +91,7 @@ function parse_parameters(input_param )
                 Source_Declination= parse(Float64, pair[2])
             elseif pair[1] == "Source_Hour_Angle"
                 Source_Hour_Angle= parse(Float64, pair[2])
-            elseif pair[1] == Subarray_Number
+            elseif pair[1] == "Subarray_Number"
                 Subarray_Number= parse(Int, pair[2])
             elseif pair[1] == "Number_Iterations"
                 Number_Iterations= parse(Int, pair[2])
