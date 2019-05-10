@@ -1,0 +1,42 @@
+########################################################################################################################
+########################################################################################################################
+#                                                                                                                      #
+#                 PARAMETERS - Subarray selection using Genetic Algorithm                                              #
+#                 JULIA version                                                                                        # 
+########################################################################################################################
+
+
+Array_Configuration_File : ../master/data/random.cfg
+Result_Folder : ../products
+Display_Verbose : true
+Observatory_Latitude : -23.0262015
+Source_Declination : -50
+Source_Hour_Angle : 0		  
+Subarray_Number : 5
+Pads_Per_Subarray : 30,30 , 15, 15, 10
+
+#—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+Subarray_Name                        : Sub_1, Sub_2 , Sub_3 , Sub_4 , Sub_5
+Spatial_Resolution                   : 2.0 , 2.5 , 3.5 , 3.5 , 3.5
+Maximum_Recoverable_Scale            : 20 , 20 , 10 , 10.0 , 10.0
+Elongation                           : 1.1 , 1.0 , 2.0 , 2.0 , 2.0
+Sidelobe_Level                       : 10 , 5 , 60 , 60 , 60
+Weight_Spatial_Resolution            : 0.6 , 1.0, 0.25 , 0.25 ,  0.25 , 0.25 
+Weight_Maximum_Recoverable_Scale     : 0.1, 0.1 , 0.25 , 0.25 , 0.25 
+Weight_Elongation                    : 0.4, 0.6, 0.25 , 0.25 , 0.25 
+Weight_Sidelobe_Levels               : 0.5, 0.6 , 0.25 , 0.25 , 0.25 
+
+Weights_Subarray  					 : 0.5, 2.0 ,0.01,0.01 , 0.01
+
+#——————————————————————————————————————————————————————————————————————————————————————————————————————————————
+                         
+Number_Iterations : 10
+Population_Size : 10
+Termination_Condition : false
+Threshold : -0.05
+Mutation_Rate : 0.02
+Tournament_Size : 5
+Number_Elitism : 2
+
+#—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
