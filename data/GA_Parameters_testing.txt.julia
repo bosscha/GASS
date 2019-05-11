@@ -31,12 +31,12 @@ Weights_Subarray  					 : 0.5, 2.0 ,0.01,0.01 , 0.01
 
 #——————————————————————————————————————————————————————————————————————————————————————————————————————————————
                          
-Number_Iterations : 10
-Population_Size : 10
+Number_Iterations : 200
+Population_Size : 200
 Termination_Condition : false
 Threshold : -0.05
-Mutation_Rate : 0.02
+Mutation_Rate : 0.05
 Tournament_Size : 5
-Number_Elitism : 2
+Number_Elitism : 5
 
 #—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
