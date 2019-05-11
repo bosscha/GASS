@@ -15,7 +15,7 @@ function save_CASAarr(fileprefix::String, cfg::cfg, bestsub)
                 cfg.arr.Z[bestsub[i][j]] , cfg.arr.diam[bestsub[i][j]] , cfg.arr.name[bestsub[i][j]])
         end
 
-        filename= fileprefix*"_"*subname*".cfg"đ
+        filename= fileprefix*"_"*subname*".cfg"
         f= open(filename, "w")
         print(f,arrStr)
         close(f)
