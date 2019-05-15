@@ -16,7 +16,7 @@ function main(inpfile)
     println("## Parameter file: $inpfile")
     cfg = read_cfg(inpfile)
     
-    res= full_run("test_" , cfg , true)
+    res= full_run("testing" , cfg , true)
 end
 
-pop= @time main("../master/data/GA_Parameters_random.txt.julia")
+pop= @time main("../master/data/GA_Parameters_testing.txt.julia")
