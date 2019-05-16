@@ -11,7 +11,7 @@ function save_CASAarr(fileprefix::String, cfg::cfg, bestsub)
         subname= cfg.sub.Subarray_Name[i]
 
         for j in 1:length(bestsub[i])
-            arrStr *= @sprintf("%f %f %f %2.1f %s \n",cfg.arr.X[bestsub[i][j]], cfg.arr.Y[bestsub[i][j]] , 
+            arrStr *= @sprintf("%f %f %f %2.1f %s\n",cfg.arr.X[bestsub[i][j]], cfg.arr.Y[bestsub[i][j]] , 
                 cfg.arr.Z[bestsub[i][j]] , cfg.arr.diam[bestsub[i][j]] , cfg.arr.name[bestsub[i][j]])
         end
 

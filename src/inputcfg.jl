@@ -145,6 +145,8 @@ function parse_parameters(input_param)
             end
         end
         
+        ## trim leading/trailing spaces...NOT YET
+        
         arrcfg = CSV.read(convert(String,Array_Configuration_File), datarow=4 , header=["X" , "Y", "Z" , "diam" , "name"] ,  ignorerepeated=true, delim= " ")
            
         subrange = []

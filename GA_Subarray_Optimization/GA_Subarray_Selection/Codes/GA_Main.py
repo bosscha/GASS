@@ -40,7 +40,7 @@ import compute_constraints_subarray as ccs
 #==================================================================================================================================
 #==================================================================================================================================
 File_Inputs='GA_Subarray_Selection/GA_Inputs.txt'
-File_Inputs= '/home/stephane/Science/ALMA/ArrayConfig/GASS/products/Input_Files/GA_Inputs_O-10.txt'
+File_Inputs= '/home/stephane/Science/ALMA/ArrayConfig/GASS/products/input_files/GA_Inputs_random.txt'
 
 inputs= pd.read_csv(
         File_Inputs, comment='#', names=['NAMES','VALUES'], sep='\s+'+':'+'\s+')
